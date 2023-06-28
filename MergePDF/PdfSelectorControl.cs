@@ -11,17 +11,17 @@ namespace MergePDF
         private Button button;
 
         private Button closeButton;
-        private readonly OpenFileDialog openFileDialog;
+        private OpenFileDialog openFileDialog;
 
         private TextBox textBox;
-
+        private string folderPath;
         public PdfSelectorControl(int index)
         {
             InitializeComponent();
 
             openFileDialog = new OpenFileDialog
             {
-                InitialDirectory = "c:\\",
+                InitialDirectory = "c://",
                 Title = "Open PDF file",
                 Filter = "PDF files (*.pdf)|*.pdf",
                 FilterIndex = 2,
@@ -101,9 +101,24 @@ namespace MergePDF
             button.Click += (sender, e) =>
             {
                 var dialog = openFileDialog;
+                //Console.WriteLine(folderPath);
+
                 if (dialog.ShowDialog() == DialogResult.OK)
                     try
                     {
+                        //Console.WriteLine(folderPath);
+                        folderPath = Path.GetDirectoryName(dialog.FileName);
+                        //Console.WriteLine(folderPath);
+
+                        openFileDialog = new OpenFileDialog
+                        {
+                            InitialDirectory = folderPath,
+                            Title = "Open PDF file",
+                            Filter = "PDF files (*.pdf)|*.pdf",
+                            FilterIndex = 2,
+                            RestoreDirectory = true
+                        };
+
                         var fileName = dialog.FileName;
                         textBox.Text = fileName;
                         FileName = fileName;
