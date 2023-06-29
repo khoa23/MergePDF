@@ -8,9 +8,10 @@ namespace MergePDF
     {
         public string FileName { get; private set; }
         private SaveFileDialog saveFileDialog;
-        private readonly Action<string> logger;
+        private Action<string> logger;
 
         TextBox textBox;
+        private string folderPath;
 
         public SaveOutputSelectorControl(Action<string> logger)
         {
@@ -52,6 +53,9 @@ namespace MergePDF
 
             button.Click += (sender, e) =>
             {
+                var path_ = PdfSelectorControl.getFolderPath();
+                saveFileDialog.InitialDirectory = path_;
+
                 saveFileDialog.ShowDialog();
                 if (saveFileDialog.FileName != "")
                 {
@@ -62,6 +66,11 @@ namespace MergePDF
             };
 
             return button;
+        }
+
+        private void SaveOutputSelectorControl_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

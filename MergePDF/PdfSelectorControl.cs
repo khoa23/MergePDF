@@ -14,7 +14,7 @@ namespace MergePDF
         private OpenFileDialog openFileDialog;
 
         private TextBox textBox;
-        private string folderPath;
+        public static string folderPath;
         public PdfSelectorControl(int index)
         {
             InitializeComponent();
@@ -37,6 +37,10 @@ namespace MergePDF
             Controls.Add(textBox);
             Controls.Add(button);
             Controls.Add(closeButton);
+        }
+
+        public static string getFolderPath() { 
+            return folderPath;
         }
 
         public string FileName { get; private set; }

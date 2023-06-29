@@ -32,10 +32,12 @@
             // 
             // SaveOutputSelectorControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "SaveOutputSelectorControl";
-            this.Size = new System.Drawing.Size(535, 49);
+            this.Size = new System.Drawing.Size(802, 75);
+            this.Load += new System.EventHandler(this.SaveOutputSelectorControl_Load);
             this.ResumeLayout(false);
 
         }
