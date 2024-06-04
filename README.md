@@ -6,7 +6,7 @@ A small pdf merging tool built upon [PDFsharp](http://www.pdfsharp.com/PDFsharp/
 - More to come! 
 
 ## Quickstart guide
-* Download latest release [here](https://raw.githubusercontent.com/khoa23/MergePDF/blob/master/releases/MergePDF.zip)
+* Download latest release [here](https://github.com/khoa23/MergePDF/raw/master/releases/MergePDF.zip)
 * Unzip folder
 * Run MergePDF 
 
